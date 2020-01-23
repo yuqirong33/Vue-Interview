@@ -36,4 +36,32 @@ v-for="(row, i) in calculateList(scope.row.navDish, item)" :key="i"
 
 
 
+### 3.你知道vue中key的作用和工作原理吗？说说你对它的理解。
+
+vue中列表循环需加:key="唯一标识" 唯一标识可以是item里面id index等，因为vue组件高度复用增加Key可以标识组件的唯一性，vue.js的虚拟DOM算法，在更新vNode时，需要从旧vNode列表中查找与新vNode节点相同的vNode进行更新，如果这个过程设置了属性key，过程就会快很多。
+
+
+
+### 4.你怎么理解vue中的diff算法
+
+虚拟节点通过JS的Object对象模拟DOM中的节点，然后再通过特定的render方法将其渲染成真实的DOM节点 dom diff 则是通过JS层面的计算，返回一个patch对象，也就是补丁对象，在通过特定的操作解析patch对象，完成页面的重新渲染。
+
+实现步骤：
+
+    		* 用JavaScript对象模拟DOM
+    		* 把此虚拟DOM转成真实DOM并插入页面中
+    		* 如果有事件发生修改了虚拟DOM
+    		* 比较两棵虚拟DOM树的差异，得到差异对象
+    		* 把差异对象应用到真正的DOM树上
+
+总结：
+
+​	比较两棵DOM树的差异是Virtual DOM算法最核心的部分，简单的说就是新旧虚拟dom 的比较，如果有差异就以新的为准，然后再插入的真实的dom中，重新渲染。
+
+
+
+
+
+
+
 
